@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 def hello(greeting, *args):
-    if (len(args)==0):
-        print('%s!' % greeting)
+    if not args:
+        print(f'{greeting}!')
     else:
-        print('%s, %s!' % (greeting, ', '.join(args)))
+        print(f"{greeting}, {', '.join(args)}!")
 
 hello('Hi') # => greeting='Hi', args=()
 hello('Hi', 'Sarah') # => greeting='Hi', args=('Sarah')

@@ -10,7 +10,7 @@ class Field(object):
         self.column_type = column_type
 
     def __str__(self):
-        return '<%s:%s>' % (self.__class__.__name__, self.name)
+        return f'<{self.__class__.__name__}:{self.name}>'
 
 class StringField(Field):
 
@@ -27,13 +27,13 @@ class ModelMetaclass(type):
     def __new__(cls, name, bases, attrs):
         if name=='Model':
             return type.__new__(cls, name, bases, attrs)
-        print('Found model: %s' % name)
-        mappings = dict()
+        print(f'Found model: {name}')
+        mappings = {}
         for k, v in attrs.items():
             if isinstance(v, Field):
-                print('Found mapping: %s ==> %s' % (k, v))
+                print(f'Found mapping: {k} ==> {v}')
                 mappings[k] = v
-        for k in mappings.keys():
+        for k in mappings:
             attrs.pop(k)
         attrs['__mappings__'] = mappings # 保存属性和列的映射关系
         attrs['__table__'] = name # 假设表名和类名一致
@@ -61,9 +61,10 @@ class Model(dict, metaclass=ModelMetaclass):
             fields.append(v.name)
             params.append('?')
             args.append(getattr(self, k, None))
-        sql = 'insert into %s (%s) values (%s)' % (self.__table__, ','.join(fields), ','.join(params))
-        print('SQL: %s' % sql)
-        print('ARGS: %s' % str(args))
+        sql = f"insert into {self.__table__} ({','.join(fields)}) values ({','.join(params)})"
+
+        print(f'SQL: {sql}')
+        print(f'ARGS: {args}')
 
 # testing code:
 

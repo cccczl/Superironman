@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 def fn(self, name='world'): # 先定义函数
-    print('Hello, %s.' % name)
+    print(f'Hello, {name}.')
 
 Hello = type('Hello', (object,), dict(hello=fn)) # 创建Hello class
 

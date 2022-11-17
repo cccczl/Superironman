@@ -17,7 +17,7 @@ class Student(object):
         self.score = score
 
     def __str__(self):
-        return 'Student object (%s, %s, %s)' % (self.name, self.age, self.score)
+        return f'Student object ({self.name}, {self.age}, {self.score})'
 
 s = Student('Bob', 20, 88)
 std_data = json.dumps(s, default=lambda obj: obj.__dict__)

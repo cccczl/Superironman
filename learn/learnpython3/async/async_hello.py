@@ -6,9 +6,9 @@ import asyncio
 
 @asyncio.coroutine
 def hello():
-    print('Hello world! (%s)' % threading.currentThread())
+    print(f'Hello world! ({threading.currentThread()})')
     yield from asyncio.sleep(1)
-    print('Hello again! (%s)' % threading.currentThread())
+    print(f'Hello again! ({threading.currentThread()})')
 
 loop = asyncio.get_event_loop()
 tasks = [hello(), hello()]

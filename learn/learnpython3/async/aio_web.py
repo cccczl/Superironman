@@ -17,7 +17,7 @@ async def index(request):
 
 async def hello(request):
     await asyncio.sleep(0.5)
-    text = '<h1>hello, %s!</h1>' % request.match_info['name']
+    text = f"<h1>hello, {request.match_info['name']}!</h1>"
     return web.Response(body=text.encode('utf-8'))
 
 async def init(loop):

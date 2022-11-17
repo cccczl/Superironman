@@ -5,7 +5,7 @@ class FooError(ValueError):
 def foo(s):
     n = int(s)
     if n==0:
-        raise FooError('invalid value: %s' % s)
+        raise FooError(f'invalid value: {s}')
     return 10 / n
 
 foo('0')

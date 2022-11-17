@@ -37,24 +37,23 @@ def print_info(msg, indent=0):
                 else:
                     hdr, addr = parseaddr(value)
                     name = decode_str(hdr)
-                    value = u'%s <%s>' % (name, addr)
-            print('%s%s: %s' % ('  ' * indent, header, value))
+                    value = f'{name} <{addr}>'
+            print(f"{'  ' * indent}{header}: {value}")
     if (msg.is_multipart()):
         parts = msg.get_payload()
         for n, part in enumerate(parts):
-            print('%spart %s' % ('  ' * indent, n))
-            print('%s--------------------' % ('  ' * indent))
+            print(f"{'  ' * indent}part {n}")
+            print(f"{'  ' * indent}--------------------")
             print_info(part, indent + 1)
     else:
         content_type = msg.get_content_type()
-        if content_type=='text/plain' or content_type=='text/html':
+        if content_type in ['text/plain', 'text/html']:
             content = msg.get_payload(decode=True)
-            charset = guess_charset(msg)
-            if charset:
+            if charset := guess_charset(msg):
                 content = content.decode(charset)
-            print('%sText: %s' % ('  ' * indent, content + '...'))
+            print(f"{'  ' * indent}Text: {content}...")
         else:
-            print('%sAttachment: %s' % ('  ' * indent, content_type))
+            print(f"{'  ' * indent}Attachment: {content_type}")
 
 # 连接到POP3服务器:
 server = poplib.POP3(pop3_server)

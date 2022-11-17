@@ -11,7 +11,7 @@ def fib(max):
     while n < max:
         yield b
         a, b = b, a + b
-        n = n + 1
+        n += 1
     return 'done'
 
 f = fib(10)

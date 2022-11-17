@@ -6,7 +6,7 @@ class Fib(object):
     def __getitem__(self, n):
         if isinstance(n, int):
             a, b = 1, 1
-            for x in range(n):
+            for _ in range(n):
                 a, b = b, a + b
             return a
         if isinstance(n, slice):
@@ -26,5 +26,5 @@ f = Fib()
 print(f[0])
 print(f[5])
 print(f[100])
-print(f[0:5])
+print(f[:5])
 print(f[:10])

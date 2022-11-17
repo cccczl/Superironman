@@ -6,18 +6,18 @@ import os, time, random
 
 # 写数据进程执行的代码:
 def write(q):
-    print('Process to write: %s' % os.getpid())
+    print(f'Process to write: {os.getpid()}')
     for value in ['A', 'B', 'C']:
-        print('Put %s to queue...' % value)
+        print(f'Put {value} to queue...')
         q.put(value)
         time.sleep(random.random())
 
 # 读数据进程执行的代码:
 def read(q):
-    print('Process to read: %s' % os.getpid())
+    print(f'Process to read: {os.getpid()}')
     while True:
         value = q.get(True)
-        print('Get %s from queue.' % value)
+        print(f'Get {value} from queue.')
 
 if __name__=='__main__':
     # 父进程创建Queue，并传给各个子进程：

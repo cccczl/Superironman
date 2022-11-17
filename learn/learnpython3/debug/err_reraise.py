@@ -3,7 +3,7 @@
 def foo(s):
     n = int(s)
     if n==0:
-        raise ValueError('invalid value: %s' % s)
+        raise ValueError(f'invalid value: {s}')
     return 10 / n
 
 def bar():

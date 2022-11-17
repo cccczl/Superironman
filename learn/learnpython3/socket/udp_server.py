@@ -14,5 +14,5 @@ while True:
     # 接收数据:
     data, addr = s.recvfrom(1024)
     print('Received from %s:%s.' % addr)
-    reply = 'Hello, %s!' % data.decode('utf-8')
+    reply = f"Hello, {data.decode('utf-8')}!"
     s.sendto(reply.encode('utf-8'), addr)

@@ -9,7 +9,7 @@ with request.urlopen('https://api.douban.com/v2/book/2129650') as f:
     data = f.read()
     print('Status:', f.status, f.reason)
     for k, v in f.getheaders():
-        print('%s: %s' % (k, v))
+        print(f'{k}: {v}')
     print('Data:', data.decode('utf-8'))
 
 # advanced get:
@@ -19,7 +19,7 @@ req.add_header('User-Agent', 'Mozilla/6.0 (iPhone; CPU iPhone OS 8_0 like Mac OS
 with request.urlopen(req) as f:
     print('Status:', f.status, f.reason)
     for k, v in f.getheaders():
-        print('%s: %s' % (k, v))
+        print(f'{k}: {v}')
     print('Data:', f.read().decode('utf-8'))
 
 # post:
@@ -45,7 +45,7 @@ req.add_header('Referer', 'https://passport.weibo.cn/signin/login?entry=mweibo&r
 with request.urlopen(req, data=login_data.encode('utf-8')) as f:
     print('Status:', f.status, f.reason)
     for k, v in f.getheaders():
-        print('%s: %s' % (k, v))
+        print(f'{k}: {v}')
     print('Data:', f.read().decode('utf-8'))
 
 # with proxy and proxy auth:
