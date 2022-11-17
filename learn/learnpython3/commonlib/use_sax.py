@@ -5,13 +5,13 @@ from xml.parsers.expat import ParserCreate
 
 class DefaultSaxHandler(object):
     def start_element(self, name, attrs):
-        print('sax:start_element: %s, attrs: %s' % (name, str(attrs)))
+        print(f'sax:start_element: {name}, attrs: {str(attrs)}')
 
     def end_element(self, name):
-        print('sax:end_element: %s' % name)
+        print(f'sax:end_element: {name}')
 
     def char_data(self, text):
-        print('sax:char_data: %s' % text)
+        print(f'sax:char_data: {text}')
 
 xml = r'''<?xml version="1.0"?>
 <ol>

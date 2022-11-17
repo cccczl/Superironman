@@ -48,9 +48,9 @@ def str2float(s):
             return f
         if point == 0:
             return f * 10 + n
-        else:
-            point = point * 10
-            return f + n / point
+        point *= 10
+        return f + n / point
+
     return reduce(to_float, nums, 0.0)
 
 print(str2float('0'))

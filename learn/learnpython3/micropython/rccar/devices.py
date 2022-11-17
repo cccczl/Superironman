@@ -6,11 +6,11 @@ class InputDevice():
         self.handler = ''
 
     def __str__(self):
-        return '<Input Device: name=%s, handler=%s>' % (self.name, self.handler)
+        return f'<Input Device: name={self.name}, handler={self.handler}>'
 
     def setName(self, name):
         if len(name) >= 2 and name.startswith('"') and name.endswith('"'):
-            name = name[1:len(name)-1]
+            name = name[1:-1]
         self.name = name
 
     def setHandler(self, handlers):
@@ -43,5 +43,5 @@ def detectJoystick(joystickNames):
     for device in listDevices():
         for joystickName in joystickNames:
             if joystickName in device.name:
-                return '/dev/input/%s' % device.handler
+                return f'/dev/input/{device.handler}'
     return None

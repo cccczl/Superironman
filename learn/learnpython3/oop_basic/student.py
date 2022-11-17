@@ -8,7 +8,7 @@ class Student(object):
         self.score = score
 
     def print_score(self):
-        print('%s: %s' % (self.name, self.score))
+        print(f'{self.name}: {self.score}')
 
     def get_grade(self):
         if self.score >= 90:

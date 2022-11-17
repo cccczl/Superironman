@@ -6,7 +6,7 @@ class Student(object):
         self.name = name
 
     def __call__(self):
-        print('My name is %s.' % self.name)
+        print(f'My name is {self.name}.')
 
 s = Student('Michael')
 s()

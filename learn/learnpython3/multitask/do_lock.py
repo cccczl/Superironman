@@ -14,7 +14,7 @@ def change_it(n):
     balance = balance - n
 
 def run_thread(n):
-    for i in range(100000):
+    for _ in range(100000):
         # 先要获取锁:
         lock.acquire()
         try:

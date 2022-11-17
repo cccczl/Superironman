@@ -5,9 +5,9 @@ from contextlib import contextmanager
 
 @contextmanager
 def log(name):
-    print('[%s] start...' % name)
+    print(f'[{name}] start...')
     yield
-    print('[%s] end.' % name)
+    print(f'[{name}] end.')
 
 with log('DEBUG'):
     print('Hello, world!')

@@ -6,7 +6,7 @@ def drawStar(x, y):
     pd()
     # set heading: 0
     seth(0)
-    for i in range(5):
+    for _ in range(5):
         fd(40)
         rt(144)
 

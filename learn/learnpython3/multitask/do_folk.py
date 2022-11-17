@@ -3,10 +3,10 @@
 
 import os
 
-print('Process (%s) start...' % os.getpid())
+print(f'Process ({os.getpid()}) start...')
 # Only works on Unix/Linux/Mac:
 pid = os.fork()
 if pid == 0:
-    print('I am child process (%s) and my parent is %s.' % (os.getpid(), os.getppid()))
+    print(f'I am child process ({os.getpid()}) and my parent is {os.getppid()}.')
 else:
-    print('I (%s) just created a child process (%s).' % (os.getpid(), pid))
+    print(f'I ({os.getpid()}) just created a child process ({pid}).')

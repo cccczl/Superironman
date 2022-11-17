@@ -40,7 +40,7 @@ d = {'a': 1, 'b': 2, 'c': 3}
 
 # iter each key:
 print('iter key:', d)
-for k in d.keys():
+for k in d:
     print('key:', k)
 
 # iter each value:

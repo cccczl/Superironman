@@ -37,11 +37,13 @@ class JoyStick():
             while True:
                 event = infile.read(EVENT_SIZE)
                 _, _, t, c, v = struct.unpack(FORMAT, event)
-                if t == 1 and v == 1:
-                    # button pressed:
-                    if self.buttonHandler:
-                        if not self.buttonHandler(c):
-                            return
+                if (
+                    t == 1
+                    and v == 1
+                    and self.buttonHandler
+                    and not self.buttonHandler(c)
+                ):
+                    return
                 if t == 3:
                     if c == 0 and self.joyLeftHandler:
                         # left stick & horizontal:
